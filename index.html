@@ -317,7 +317,6 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .svc-card:nth-child(3n){border-right:1px solid var(--border);}
   .svc-card:nth-child(2n){border-right:none;}
-  .why-grid{grid-template-columns:1fr;}
   .process-grid{grid-template-columns:1fr 1fr;}
   .gallery-strip{grid-template-columns:repeat(3,1fr);}
   .form-row{grid-template-columns:1fr;}
@@ -327,10 +326,35 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);}
 @media(max-width:480px){
   .hero-h1-1,.hero-h1-2{font-size:clamp(24px,7.5vw,52px);white-space:nowrap;}
   .svc-grid{grid-template-columns:1fr;}
-  .team-grid{grid-template-columns:1fr;}
-  .process-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .team-card{font-size:13px;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .why-grid{grid-template-columns:1fr 1fr;}
+  .why-card{padding:18px;}
+  .why-desc{font-size:12px;line-height:1.6;}
+  .why-title{font-size:13px;}
   .gallery-strip{grid-template-columns:1fr 1fr;}
   .stats-inner{grid-template-columns:1fr 1fr;}
+}
+
+/* ── New: standalone CTA banner, replaces in-grid .svc-cta card ── */
+.svc-cta-banner{max-width:1000px;margin:28px auto 0;background:var(--ink);border-radius:2px;display:flex;align-items:center;gap:24px;padding:32px 36px;}
+.svc-cta-icon{width:44px;height:44px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0;}
+.svc-cta-text{flex:1;}
+.svc-cta-title{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.svc-cta-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;}
+.svc-cta-banner .svc-cta-btn{flex-shrink:0;margin-top:0;padding:13px 26px;}
+
+@media(max-width:768px){
+  .svc-cta-banner{flex-direction:column;text-align:center;padding:28px 24px;gap:14px;}
+  .svc-cta-banner .svc-cta-btn{width:100%;}
+}
+
+/* ── New: lets the 5th why-card span both columns as a closing row ── */
+.why-card-wide{grid-column:1 / -1;}
+
+@media(max-width:768px){
+  .why-card-wide{grid-column:auto;}
 }
 </style>
 
@@ -973,27 +997,14 @@ nav.scrolled .nav-logo-brand{color:#202A36 !important;}
         <div class="svc-en">Common Areas</div>
         <div class="svc-desc" data-ja="ロビー、廊下、エレベーター、レストランなど、すべての共用スペースを清潔に維持します。" data-en="Lobbies, hallways, elevators, restaurants — every guest-facing space kept pristine.">ロビー、廊下、エレベーター、レストランなど、すべての共用スペースを清潔に維持します。</div>
       </div>
-      <div class="svc-card">
-        <div class="svc-num">04</div>
-        <div class="svc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-        <div class="svc-title" data-ja="夜間・早朝対応" data-en="Flexible Hours">夜間・早朝対応</div>
-        <div class="svc-en">24/7 Availability</div>
-        <div class="svc-desc" data-ja="ホテルの営業時間に合わせた早朝・深夜シフト対応。急な増員依頼にも迅速に対応します。" data-en="Early morning and late night shifts. Rapid response to urgent staffing needs at peak times.">ホテルの営業時間に合わせた早朝・深夜シフト対応。急な増員依頼にも迅速に対応します。</div>
+    </div>
+    <div class="svc-cta-banner reveal">
+      <div class="svc-cta-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+      <div class="svc-cta-text">
+        <div class="svc-cta-title" data-ja="無料相談・お見積り" data-en="Free Consultation">無料相談・お見積り</div>
+        <div class="svc-cta-desc" data-ja="施設規模に応じたカスタムプランを無料でご提案します。" data-en="Custom plans tailored to your facility — free of charge.">施設規模に応じたカスタムプランを無料でご提案します。</div>
       </div>
-      <div class="svc-card">
-        <div class="svc-num">05</div>
-        <div class="svc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M16 8l-4 4-2-2"/></svg></div>
-        <div class="svc-title" data-ja="衛生管理・消毒" data-en="Sanitization">衛生管理・消毒</div>
-        <div class="svc-en">Disinfection</div>
-        <div class="svc-desc" data-ja="業務用消毒剤による高度な衛生管理。感染症対策基準に準拠した清掃プロトコルを全施設で適用します。" data-en="Commercial-grade disinfectants with full infection control protocols applied at all facilities.">業務用消毒剤による高度な衛生管理。感染症対策基準に準拠した清掃プロトコルを全施設で適用します。</div>
-      </div>
-      <div class="svc-card svc-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <div class="svc-icon" style="border-color:rgba(201,168,76,0.3);color:var(--gold);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
-        <div class="svc-title" data-ja="無料相談・お見積り" data-en="Free Consultation">無料相談・お見積り</div>
-        <div class="svc-en" style="color:rgba(255,255,255,0.25);">Free Consultation</div>
-        <div class="svc-desc" data-ja="施設規模に応じたカスタムプランを無料でご提案します。" data-en="Custom plans tailored to your facility — free of charge.">施設規模に応じたカスタムプランを無料でご提案します。</div>
-        <button class="svc-cta-btn" data-ja="相談する →" data-en="Get Started →">相談する →</button>
-      </div>
+      <button class="svc-cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-ja="相談する →" data-en="Get Started →">相談する →</button>
     </div>
   </div>
 </section>
@@ -1003,14 +1014,10 @@ nav.scrolled .nav-logo-brand{color:#202A36 !important;}
   <div class="sec-inner">
     <div class="reveal">
       <div class="sec-eye"><div class="sec-eye-line" style="background:var(--gold);"></div><span class="sec-eye-text" style="color:var(--gold);" data-ja="選ばれる理由" data-en="Why Choose Us">選ばれる理由</span></div>
-      <h2 class="sec-h2 on-dark" data-ja="KALIKAが選ばれる<br><em>6つの理由</em>" data-en="6 Reasons Hotels<br>Choose <em>KALIKA</em>">KALIKAが選ばれる<br><em>6つの理由</em></h2>
+      <h2 class="sec-h2 on-dark" data-ja="KALIKAが選ばれる<br><em>5つの理由</em>" data-en="5 Reasons Hotels<br>Choose <em>KALIKA</em>">KALIKAが選ばれる<br><em>5つの理由</em></h2>
     </div>
     <div class="why-grid reveal">
-      <div class="why-card">
-        <div class="why-top"><span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><span class="why-title" data-ja="多言語対応チーム" data-en="Multilingual Team">多言語対応チーム</span></div>
-        <div class="why-desc" data-ja="日本語・英語・その他言語に対応。外資系ホテルや外国人ゲストの多い施設でも安心してお任せいただけます。" data-en="Japanese, English and more. Perfect for international hotel brands and properties with many foreign guests.">日本語・英語・その他言語に対応。外資系ホテルや外国人ゲストの多い施設でも安心してお任せいただけます。</div>
-      </div>
-      <div class="why-card">
+<div class="why-card">
         <div class="why-top"><span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></span><span class="why-title" data-ja="教育された専門スタッフ" data-en="Trained Professionals">教育された専門スタッフ</span></div>
         <div class="why-desc" data-ja="全スタッフがホテル業界水準の研修を修了。5つ星施設で認められた清掃技術とマナーを徹底しています。" data-en="Every staff member completes hotel-industry training. The same standards trusted by a 5-star resort.">全スタッフがホテル業界水準の研修を修了。5つ星施設で認められた清掃技術とマナーを徹底しています。</div>
       </div>
@@ -1029,6 +1036,10 @@ nav.scrolled .nav-logo-brand{color:#202A36 !important;}
       <div class="why-card">
         <div class="why-top"><span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span class="why-title" data-ja="信頼の法人体制" data-en="Reliable Corporate">信頼の法人体制</span></div>
         <div class="why-desc" data-ja="宮崎法務局に正式登記した株式会社。保険・コンプライアンス・個人情報管理まで万全の体制です。" data-en="Officially registered corporation in Miyazaki. Full insurance, compliance, and data protection in place.">宮崎法務局に正式登記した株式会社。保険・コンプライアンス・個人情報管理まで万全の体制です。</div>
+      </div>
+      <div class="why-card why-card-wide">
+        <div class="why-top"><span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M16 8l-4 4-2-2"/></svg></span><span class="why-title" data-ja="衛生管理・消毒基準" data-en="Hygiene &amp; Sanitization Standard">衛生管理・消毒基準</span></div>
+        <div class="why-desc" data-ja="業務用消毒剤による高度な衛生管理。感染症対策基準に準拠した清掃プロトコルを全施設で適用します。" data-en="Commercial-grade disinfectants with full infection control protocols applied at every facility we serve.">業務用消毒剤による高度な衛生管理。感染症対策基準に準拠した清掃プロトコルを全施設で適用します。</div>
       </div>
     </div>
   </div>
