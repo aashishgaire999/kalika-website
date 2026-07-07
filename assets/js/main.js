@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     'tb-jp-3':['九州エリア取引先','Kyushu clients'],
     'tb-jp-4':['対応体制','Response ready'],
     'partner-title':['九州を代表する5つ星リゾートに選ばれました','Selected by Kyushu\'s Premier 5-Star Resort'],
-    'partner-desc':['フェニックス・シーガイア・オーシャン・タワーに公式清掃パートナーとしてご採用いただいています。5つ星施設が求める品質基準を毎日実現していることが、私たちの最大の実績です。','Phoenix Seagaia Ocean Tower selected KALIKA as their exclusive cleaning partner. Delivering 5-star quality standards every single day is our greatest achievement.'],
+    'partner-desc':['九州の5つ星リゾートホテルに清掃パートナーとしてご採用いただいた実績があります。5つ星施設が求める品質基準を毎日実現していることが、私たちの最大の実績です。','A 5-star resort hotel in Kyushu selected KALIKA as a cleaning partner. Delivering 5-star quality standards every single day is our greatest achievement.'],
     'btn-partner-text':['お問い合わせ →','Contact Us →'],
     'sec-services-tag':['SERVICES · サービス','OUR SERVICES'],
     'sec-services-h2':['サービス内容','Our Services'],
